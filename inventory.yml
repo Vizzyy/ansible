@@ -1,0 +1,19 @@
+all:
+  children:
+    master:
+      hosts:
+        dinkleberg.local:
+      vars:
+        ansible_user: barney
+    rpis:
+      hosts:
+        vox.local:
+        summer.local:
+        four.local:
+        lights.local:
+        octopi.local:
+        winter1.local:
+        herbivore.local:
+        carnivore.local:
+      vars:
+        ansible_user: pi
