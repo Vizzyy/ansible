@@ -5,6 +5,7 @@ all:
         dinkleberg.local:
       vars:
         ansible_user: barney
+        ansible_python_interpreter: /usr/bin/python
     rpis:
       hosts:
         vox.local:
@@ -17,3 +18,4 @@ all:
         carnivore.local:
       vars:
         ansible_user: pi
+        ansible_python_interpreter: /usr/bin/python

@@ -1,0 +1,21 @@
+---
+- name: Add another entry into wpa_supplicant
+  hosts: rpis
+  become: true
+
+  tasks:
+    - name: Overwrite Wifi conf
+      copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
+
+    - name: Reboot host
+      shell: sleep 2 && reboot
+      async: 1
+      poll: 0
+
+    - name: Wait for response
+      wait_for_connection:
+        connect_timeout: 20
+        sleep: 5
+        delay: 5
+        timeout: 90
+
